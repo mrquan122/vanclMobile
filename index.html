@@ -77,38 +77,25 @@
            });  */
 
         
-                var m=0
-                var dm=$('#move li').width();
+        
+             
              $('#move').bind('swipeleft', function(event) {
                   var dm=$('#move li').width();
-                  m=m-1;
-           
-               if (m<-1) {       
-                               $('#move').css('left', '0');
-                               $('#twotab li').eq(0).addClass('active').siblings().removeClass('active');
-                               console.log(m);
-                               m=0;
-                           }else{
+      
                                
-                                 $('#move').animate({left:m*dm+'px'});
+                                 $('#move').animate({left:-dm+'px'});
 
-                                 $('#twotab li').eq(-m).addClass('active').siblings().removeClass('active');
-        
-                                   console.log(dm);
+                                   $('#twotab li').eq(1).addClass('active').siblings().removeClass('active');
 
-                           }
                     
           
        }).bind('swiperight', function(event) {
+                      var dm=$('#move li').width();
+              
 
-                       m=m+1;
-
-                       if (m>0) {
-                           $('#slider').css('left', '0');
-                       }else{
-
-                          $('#slider').animate({left:m*dm+'px'});
-                      }
+                          $('#move').animate({left:'0px'});
+                                $('#twotab li').eq(0).addClass('active').siblings().removeClass('active');
+             
        });  
 
 
@@ -118,7 +105,8 @@
                        $('.select .color li ' ).eq(j).click(function(event) {
 
                          console.log("color");
-
+                             $('#twotab li').eq(0).addClass('active').siblings().removeClass('active');
+                               $('#move').animate({left:'0px'});
                   
                           $(this).toggleClass('active').siblings().removeClass('active');
 
